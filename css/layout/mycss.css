@@ -1,0 +1,198 @@
+.data-entry-wrapper{
+	margin:10px;
+}
+
+.data-entry-wrapper .button-primary{
+	margin-top:10px;	
+}
+
+.ng-scope .xbtn {
+  margin-top: 10px;
+}
+
+.ng-scope .btn-primary {
+  /* background-color: #678C5C; */
+  color: #EFF9F1;
+}
+
+.list-primary-controls{
+text-align:right;
+float:right;
+padding:2px;
+background:#4E2626;
+padding-left:4px;
+padding-right:4px;
+}
+
+.list-primary-controls i{
+margin-right: 10px;
+}
+
+#detail-pnl{
+  
+  padding-left: 220px;
+}
+
+#detail-pnl table thead{
+font-weight:bold;
+}
+
+.clickable-row{
+cursor:pointer;
+}
+
+
+/* GENERAL STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+body {
+  background: #FFE6E6;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #3A0606;
+}
+
+
+.xbtn {
+  font-size: 1.2em;
+  border-radius: 5px;
+  padding: 12px 30px;
+}
+
+.block {
+  width: 130px;
+  margin: 0 auto;
+  display: block;
+}
+
+#module{
+ padding:10px;
+}
+
+
+
+
+
+#banner {
+    position: relative;
+    color: #2A357E;
+    
+    text-shadow: 0 1px 0 rgba(0,0,0,.1);
+    background-color: #A75C4B;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#FBB2B2),to(#FFFFFF));
+    background-image: -webkit-linear-gradient(top,#FBB2B2 0,#FFFFFF 100%)
+    background-image: -o-linear-gradient(top,#FBB2B2 0,#FFFFFF 100%);
+    background-image: linear-gradient(to bottom,#FBB2B2 0,#FFFFFF 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBB2B2', endColorstr='#FFFFFF', GradientType=0);
+    background-repeat: repeat-x;
+}
+
+body {
+    
+   
+}
+
+#banner h1 {
+  word-wrap: normal;
+    white-space: nowrap;
+    position: absolute;
+    top: 130px;
+    left: 450px
+}
+
+#detail-pnl .jumbotron{
+  padding:20px;
+}
+
+#footer {
+    clear: both;
+    position: fixed;
+    z-index: -10;
+    height: 30px;
+    bottom:0px;
+    width:100%;
+    background-color: #ddd;
+    padding: 5px;
+    color: #f5f5f5;
+    font-weight: 0800;
+    cursor: default;
+}
+
+#module .selected-item{
+	background: rgba(51, 122, 183, 0.37);
+}
+
+#detail-pnl h1,h2,h3{
+	color:#F9D0D0;
+}
+.ng-scope{
+	color:#286090;
+}
+#detail-pnl a{
+	color:#4F8A1B;
+}
+
+.img-account-thumb{
+height: 124px;
+    width: 124px;
+    border-radius: 50%;
+    border: solid #b76767 2px;
+}
+
+.btn-back{
+	 font-weight:bolder;
+}
+.btn-add{
+	 font-weight:bolder;
+}
+.btn-edit{
+	 font-weight:bolder;
+}
+.btn-delete{
+	 font-weight:bolder;
+}
+
+#navigator a{
+	font-weight:bolder;
+	font-size:larger;
+}
+
+#page-header{
+	height:200px;
+	background:white;
+}
+
+#page-title{
+	position: absolute;
+    left: 230px;
+    top: 100px;
+}
+
+#page-header h4{
+	font-weight: 100;
+    border-left: #74A07E solid 1px;
+    padding-left: 5px;
+    padding-right:5px;
+    display:inline;
+    color: #FFAA96;
+}
+
+#page-header h4.first{
+	border-left:none;
+}
+
+.control-toolbar{
+	height: 40px;
+    padding: 3px;
+    background: #4E2626;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #FFEEED;
+    opacity: 1;
+}
+
+#detail-pnl .jumbotron{
+	background:#A04F4F;
+}
+#detail-pnl .jumbotron p{
+	color:white;

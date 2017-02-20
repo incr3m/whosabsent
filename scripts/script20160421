@@ -1,0 +1,9 @@
+create table user_activity
+(
+     idno mediumint not null AUTO_INCREMENT,
+    module varchar(50) not null,
+    user mediumint not null,
+    message varchar(1000) not null,
+    logdate timestamp not null DEFAULT CURRENT_TIMESTAMP, 
+    primary key(idno)
+)
