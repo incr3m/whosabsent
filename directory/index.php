@@ -9,12 +9,12 @@ $page = '';
 			case 'acct':
 				$_SESSION['moduleName'] = 'Account';
 				if(isset($_GET['sub'])&&isset($_SESSION['objectId'])){
-					switch($_GET['sub']){
-						case 'imgs':
-							$_SESSION['moduleName'] = 'Account Photos';
-							$page = 'modules/account/photo/list.php';
-							break;
-					}
+					// switch($_GET['sub']){
+					// 	case 'imgs':
+					// 		$_SESSION['moduleName'] = 'Account Photos';
+					// 		$page = 'modules/account/photo/list.php';
+					// 		break;
+					// }
 				}
 				else{
 					
