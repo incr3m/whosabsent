@@ -16,7 +16,7 @@ The phpmyadmin username and password will be the same as the MySQL credentials a
   define('SERVPATH','https://whosabsent.com/app/');
 define('DB_HOST','localhost');
 define('DB_UN','root');
-define('DB_PW','');
+define('DB_PW','123qwe');
 define('DB_NAME','ama'); 
 // 
 // define('APIPATH','http://nodejsapi-incrm.rhcloud.com');
