@@ -19,7 +19,7 @@ if (empty($_POST['username']))
   $errors['username'] = 'Username is required.';
 
 if(empty($errors)){
-    echo 'testest'.DB_PW;
+    // echo 'testest'.DB_PW;
    $myCon = createSQLCon();
 
    $userName = $_POST['username'];
