@@ -13,24 +13,24 @@ The phpmyadmin username and password will be the same as the MySQL credentials a
 */
 
 //ONLINE
-  /* define('SERVPATH','http://ama-fras.rhcloud.com/');
-define('DB_HOST',getenv('OPENSHIFT_MYSQL_DB_HOST'));
-define('DB_UN',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-define('DB_PW',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
+  define('SERVPATH','https://whosabsent.com/');
+define('DB_HOST',getenv('localhost'));
+define('DB_UN',getenv('root'));
+define('DB_PW',getenv('123wqe'));
 define('DB_NAME','ama'); 
 
-define('APIPATH','http://nodejsapi-incrm.rhcloud.com'); */ 
+define('APIPATH','http://nodejsapi-incrm.rhcloud.com');
 
 
 
 //LOCALHOST
-   define('SERVPATH','http://localhost/ama/');
-define('DB_HOST','localhost');
-define('DB_UN','root');
-define('DB_PW','');
-define('DB_NAME','facerec');
-
-define('APIPATH','http://localhost:3000');
+//    define('SERVPATH','http://localhost/ama/');
+// define('DB_HOST','localhost');
+// define('DB_UN','root');
+// define('DB_PW','');
+// define('DB_NAME','facerec');
+// 
+// define('APIPATH','http://localhost:3000');
   
 //define('APIPATH','http://nodejsapi-incrm.rhcloud.com'); 
 
