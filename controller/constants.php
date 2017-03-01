@@ -13,7 +13,7 @@ The phpmyadmin username and password will be the same as the MySQL credentials a
 */
 
 //ONLINE
-  define('SERVPATH','https://whosabsent.com/');
+  define('SERVPATH','https://whosabsent.com/app/');
 define('DB_HOST','localhost');
 define('DB_UN','root');
 define('DB_PW','123wqe');
