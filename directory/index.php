@@ -212,7 +212,7 @@ $page = '';
 	  
 		
       $('#mod-acct').append(
-            $("<ul><li id='sub-default' href='?module=acct&id=<?php echo $_SESSION['objectId']; ?>'><i class='fa fa-list-alt'></i>Account Details</li><li id='sub-imgs' href='?module=acct&sub=imgs'><i class='fa fa-photo'></i>Photos</li></ul>"));
+            $("<ul><li id='sub-default' href='?module=acct&id=<?php echo $_SESSION['objectId']; ?>'><i class='fa fa-list-alt'></i>Account Details</li></ul>"));//<li id='sub-imgs' href='?module=acct&sub=imgs'><i class='fa fa-photo'></i>Photos</li><
   <?php }?>
 
  <?php if(isset($_GET['module'])&&isset($_SESSION['objectId'])&&$_GET['module']==='stdreg') {?>
