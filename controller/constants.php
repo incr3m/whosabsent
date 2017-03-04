@@ -18,9 +18,10 @@ define('DB_HOST','localhost');
 define('DB_UN','root');
 define('DB_PW','123qwe');
 define('DB_NAME','ama'); 
-// 
-// define('APIPATH','http://nodejsapi-incrm.rhcloud.com');
 
+define('APIPATH','https://api.whosabsent.com');
+define('MOBILEAPPPATH','https://mobile.whosabsent.com');
+define('BUCKETPATH','https://s3-us-west-2.amazonaws.com/incrm.whosabsent/');
 
 
 // LOCALHOST
@@ -30,10 +31,10 @@ define('DB_NAME','ama');
 // define('DB_PW','');
 // define('DB_NAME','ama');
 
-define('APIPATH','http://localhost:3000');
-define('MOBILEAPPPATH','http://localhost:4200');
-define('BUCKETPATH','https://s3-us-west-2.amazonaws.com/incrm.whosabsent/');
-  
+// define('APIPATH','http://localhost:3000');
+// define('MOBILEAPPPATH','http://localhost:4200');
+// define('BUCKETPATH','https://s3-us-west-2.amazonaws.com/incrm.whosabsent/');
+//   
 //define('APIPATH','http://nodejsapi-incrm.rhcloud.com'); 
 
 define('PAGE_LOGIN',0);
