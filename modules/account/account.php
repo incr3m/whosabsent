@@ -60,19 +60,14 @@ if(isset($_POST['idno'])){
 		}
 
 		
-		//check duplicate username
-		$stmt = $myCon->prepare('SELECT * FROM account WHERE username = ?');
-		$stmt->bind_param('s', $username);
-
-		$stmt->execute();
-
-		$result = $stmt->get_result();
-		while ($row = $result->fetch_assoc()) {
-		    $data['errors']  = 'Username already exist.';
+    if ($result = $myCon->query(('SELECT * FROM account WHERE username = '.$username))) {
+  
+      while($row = $result->fetch_assoc()) {
+        $data['errors']  = 'Username already exist.';
 			echo json_encode($data);
 			exit;
-		}
-
+      }
+    }
 
 		$q = "INSERT INTO account (username,password,firstname,middlename,lastname,contact,address,email,birthday,usn,roles) 
 		values ('$username','$password','$firstname','$middlename','$lastname','$contact','$address','$email','$birthday','$username','$roles')";	
