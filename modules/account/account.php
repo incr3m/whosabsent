@@ -101,19 +101,16 @@ if(isset($_POST['idno'])){
 		}
 
 		//check duplicate username
-		$stmt = $myCon->prepare('SELECT * FROM account 
-			WHERE username = ? and idno <> ?');
-		$stmt->bind_param('si', $username,$id);
 
-
-		$stmt->execute();
-
-		$result = $stmt->get_result();
-		while ($row = $result->fetch_assoc()) {
-		    $data['errors']  = 'Username already exist.';
-			echo json_encode($data);
-			exit;
-		}
+    if ($result = $myCon->query(('SELECT * FROM account 
+			WHERE username = '.$username.' and idno <> '.$id))) {
+    
+          while($row = $result->fetch_assoc()) {
+            $data['errors']  = 'Username already exist.';
+    			echo json_encode($data);
+    			exit;
+          }
+        }
 
 		$q = "update account
 		 set 
