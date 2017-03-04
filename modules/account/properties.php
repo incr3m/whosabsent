@@ -232,7 +232,7 @@ if(isset($_GET['id']) && $_GET['id']>0){
 				<div style="color:white;font-weight:bold">Display Photo</div>
 					
 					<a title="Proceed to photos" href="?module=acct&sub=imgs">
-					<img class="img-account-thumb" src="<?php echo APIPATH.'/fetch?id=';?>{{account.photo}}"/>
+					<img class="img-account-thumb" src="<?php echo BUCKETPATH;?>{{account.photo}}"/>
 </a>
 				</div>
 				</div>

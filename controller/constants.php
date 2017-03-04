@@ -31,6 +31,8 @@ define('DB_NAME','ama');
 // define('DB_NAME','ama');
 
 define('APIPATH','http://localhost:3000');
+define('MOBILEAPPPATH','http://localhost:4200');
+define('BUCKETPATH','https://s3-us-west-2.amazonaws.com/incrm.whosabsent/');
   
 //define('APIPATH','http://nodejsapi-incrm.rhcloud.com'); 
 

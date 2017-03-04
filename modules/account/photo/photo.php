@@ -10,14 +10,67 @@ $errors = "";
 $data = array();
 $list = array();
 // Getting posted data and decodeing json
-if(!isset($_SESSION['objectId'])){
+if(!isset($_SESSION['objectId'])&&!isset($_POST["newphotoidno"])){
 	exit;
 }
-$_POST = json_decode(file_get_contents('php://input'), true);
-
  $myCon = createSQLCon();
 
-   $objId = $_SESSION['objectId'];
+if(isset($_POST["newphotoidno"])){
+        $index = 0;
+          if ($result = $myCon->query("select coalesce(max(idno),0) as lastindex from accountphoto")) {
+        
+            while($row = $result->fetch_assoc()) {
+              $index = $row["lastindex"];
+            }
+            $result->close();
+          }
+    
+    	   $index = $index+1;
+
+        $useridno = $_POST["newphotoidno"];
+  			$filename = $_POST["filename"];
+        $isprimary = 'NO';
+        if(isset($_POST["isprimary"])){
+          $q = "update accountphoto set 
+          				isprimary = 'NO'
+          				 where accountidno = $useridno";		
+          if ($result = $myCon->query($q) or die($myCon->error)) {
+          }
+          $isprimary = 'YES';
+        }
+  			
+  			$q = "INSERT INTO accountphoto (accountidno,filename,fileindex,isprimary) 
+  				values ($useridno,'$filename',$index,'$isprimary')";	
+  
+  			if ($result = $myCon->query($q) or die($myCon->error)) {
+  
+  				if($result === TRUE){
+  					
+  					$myCon->close();
+  					$extra['proc'] = 'success';
+  					$data['extra'] = $extra;
+  					echo json_encode($data);
+  					exit;	
+  					
+  				}
+  				else{
+  					$errors = 'Error occurred while saving new record.';
+  				}
+  				/* free result set */
+  				$myCon->close();
+  			}
+  			else{
+  				$errors .= 'Record already exist.';
+  			}
+  exit;
+}
+
+$_POST = json_decode(file_get_contents('php://input'), true);
+
+
+  $objId = $_SESSION['objectId'];
+
+ 
 
 if(isset($_FILES["inputdim2"])){
    $index = 0;

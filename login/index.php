@@ -54,7 +54,14 @@
                       } else {
                         //$scope.message = data.message;
                         //location.reload();
-                        window.location = '?home';
+                        <?php
+                          if(isset($_GET['mobile'])){
+                            echo "window.location = '?home&&mobile=1';";
+                          }
+                          else{
+                            echo "window.location = '?home';";
+                          };
+                        ?>
                       } 
                     });
                 };

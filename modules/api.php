@@ -28,7 +28,7 @@ if(isset($_GET['photo']) && isset($_GET['idno']) ){
 	
 				if($result === TRUE){
 					
-				$ch = curl_init(APIPATH.'/upload?userId='.$useridno.'&id='.urlencode($photoname.'_capture').'&imPath='.urlencode(APIPATH.'/fetch?id='.$photoname));
+				$ch = curl_init(APIPATH.'/upload?userId='.$useridno.'&id='.urlencode($photoname.'_capture').'&imPath='.urlencode(BUCKETPATH.''.$photoname));
 						curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 						curl_setopt($ch, CURLOPT_HEADER, false);
 							
@@ -58,7 +58,7 @@ if(isset($_GET['usn'])){
 	$myCon = createSQLCon();
 		
 		
-	if ($result = $myCon->query("SELECT idno,coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png') as photo,usn,username,concat(lastname,', ',firstname,' ',middlename) as name,
+	if ($result = $myCon->query("SELECT idno,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo,usn,username,concat(lastname,', ',firstname,' ',middlename) as name,
 			email,roles,dateadded FROM account a
 			where usn = $usn order by dateadded desc")) {
 				
@@ -133,7 +133,7 @@ if(isset($_GET['cmd'])){
 			$myCon = createSQLCon();
 			
 			
-			if ($result = $myCon->query("SELECT idno,coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png') as photo,usn,username,concat(lastname,', ',firstname,' ',middlename) as name,
+			if ($result = $myCon->query("SELECT idno,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo,usn,username,concat(lastname,', ',firstname,' ',middlename) as name,
 					email,roles,dateadded FROM account a 
 					where idno = $accountidno order by dateadded desc")) {
 			

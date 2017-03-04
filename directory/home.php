@@ -1,4 +1,5 @@
 <?php 
+
 function initPage(){
 
 	//$pageName = "User #".getUser($objectId)['usn'];

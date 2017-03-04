@@ -110,7 +110,7 @@ if(isset($_GET['id'])){
 </thead>
   <tr class="clickable-row" ng-repeat="x in list | orderBy:sortType:sortReverse | filter:searchList">
     <td>{{x.fileindex}}</td>
-    <td><img class="img-account-thumb" src="<?php echo APIPATH.'/fetch?id=';?>{{x.filename}}"/></td>
+    <td><img class="img-account-thumb" ng-src="<?php echo BUCKETPATH;?>{{x.filename}}"/></td>
     <td>
       <center>
             <br/>

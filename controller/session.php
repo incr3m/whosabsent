@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+header("access-control-allow-origin: *");
+
 include 'constants.php';
 include 'models.php';
 include 'utils.php';
@@ -111,7 +113,8 @@ function getPage(){
 				return $extra;			
 			BREAK;
 			default:
-			
+        $extra = 'directory/index.php';
+				return $extra;			
 		}
 		
 	}
