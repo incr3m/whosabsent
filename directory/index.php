@@ -104,8 +104,12 @@ $page = '';
 		else if (isset($_GET['about'])){
 			$page = 'directory/about.php';
 		}
+    else{
+      $page = 'directory/home.php'; 
+    }
 	}
 
+  
 	include $page;
 	initPage();
 
