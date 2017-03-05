@@ -52,7 +52,7 @@ if(isset($_GET['id'])){
 
  ?>
 
-<div class="panel panel-success">
+<!-- <div class="panel panel-success">
   <div class="panel-heading">Upload</div>
   <div class="panel-body">
     <input id="input-dim-2" name="inputdim2[]" type="file" multiple class="file-loading" accept="image/*">
@@ -74,7 +74,7 @@ if(isset($_GET['id'])){
     
     </script>
   </div>
-</div>
+</div> -->
 <div >
 <h4><?php echo $subPageName; ?></h4>
   <form>
@@ -110,7 +110,7 @@ if(isset($_GET['id'])){
 </thead>
   <tr class="clickable-row" ng-repeat="x in list | orderBy:sortType:sortReverse | filter:searchList">
     <td>{{x.fileindex}}</td>
-    <td><img class="img-account-thumb" ng-src="<?php echo BUCKETPATH;?>{{x.filename}}"/></td>
+    <td><img class="img-account-thumb" ng-src="{{x.filename}}"/></td>
     <td>
       <center>
             <br/>

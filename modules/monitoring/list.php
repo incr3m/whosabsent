@@ -139,7 +139,7 @@ else{
   </td>
 </thead>
   <tr title="Open calendar" class="clickable-row" ng-repeat="x in list | orderBy:sortType:sortReverse | filter:searchList" ng-click="itemSelected(x.accountidno)">
-    <td><img class="img-account-thumb" src="<?php echo BUCKETPATH;?>{{x.photo}}"/></td>
+    <td><img class="img-account-thumb" src="{{x.photo}}"/></td>
     <td>{{x.idno}}</td>
     <td>{{x.usn}}</td>
     <td>{{x.name}}</td>

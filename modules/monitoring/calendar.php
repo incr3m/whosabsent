@@ -19,7 +19,7 @@ $accountID = $_GET['accountID'];
 $myCon = createSQLCon();
 
 
-$queryStr = "SELECT b.idno,coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png') as photo,a.usn,concat(lastname,', ',firstname,middlename) as name, (select code from section s where s.idno = sectionid) as section,sectionid,
+$queryStr = "SELECT b.idno,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo,a.usn,concat(lastname,', ',firstname,middlename) as name, (select code from section s where s.idno = sectionid) as section,sectionid,
 (select code from subjectunit sb where sb.idno = subjectid) as subject,subjectid,logdate,remarks,status from accountlog b,account a where a.idno = b.accountid
 and a.idno = $accountID
 order by logdate ";

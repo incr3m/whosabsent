@@ -20,7 +20,7 @@ if(isset($_GET['id']) && $_GET['id']>0){
 	$myCon = createSQLCon();
 	
 
-	if ($result = $myCon->query("SELECT *,coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png') as photo FROM account a where idno = $id ")) {
+	if ($result = $myCon->query("SELECT *,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo FROM account a where idno = $id ")) {
 
 	    while($row = $result->fetch_assoc()) {
 	      $account = $row;
@@ -232,7 +232,7 @@ if(isset($_GET['id']) && $_GET['id']>0){
 				<div style="color:white;font-weight:bold">Display Photo</div>
 					
 					<a title="Proceed to photos" href="?module=acct&sub=imgs">
-					<img class="img-account-thumb" src="<?php echo BUCKETPATH;?>{{account.photo}}"/>
+					<img class="img-account-thumb" src="{{account.photo}}"/>
 </a>
 				</div>
 				</div>

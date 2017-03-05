@@ -58,7 +58,7 @@ function getPageContents(){
   </td>
 </thead>
   <tr class="clickable-row" ng-repeat="x in accounts | orderBy:sortType:sortReverse | filter:searchList" ng-click="itemSelected(x.idno)">
-    <td><img class="img-account-thumb" src="<?php echo BUCKETPATH;?>{{x.photo}}"/></td>
+    <td><img class="img-account-thumb" src="{{x.photo}}"/></td>
     <td>{{ x.username }}</td>
     <td>{{ x.name }}</td>
     <td>{{ x.dateadded }}</td>

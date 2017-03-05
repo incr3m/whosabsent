@@ -88,13 +88,13 @@ if(isset($_POST['idno'])){
    $queryStr = '';
    if(isRoleIn([ROLE_STUDENT,ROLE_TEACHER])==='true'){
    		$userIdNo = getCurrentUser()['idno'];
-   		$queryStr = "SELECT b.idno,a.idno as accountidno,coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png') as photo,a.usn,concat(lastname,', ',firstname,middlename) as name, (select code from section s where s.idno = sectionid) as section,sectionid,
+   		$queryStr = "SELECT b.idno,a.idno as accountidno,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo,a.usn,concat(lastname,', ',firstname,middlename) as name, (select code from section s where s.idno = sectionid) as section,sectionid,
    		(select code from subjectunit sb where sb.idno = subjectid) as subject,subjectid,logdate as logindate,(SELECT min(x.logdate) FROM accountlog x where x.status = 'logout' and x.subjectid = b.subjectid and x.sectionid = b.sectionid and x.accountid = b.accountid) as logoutdate,remarks,status from accountlog b,account a where b.status = 'login' and a.idno = b.accountid 
    				 and a.idno = $userIdNo ".$filter."
    		 order by logdate desc";
    }
    else{
-   	$queryStr = "SELECT b.idno,a.idno as accountidno,coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png') as photo,a.usn,concat(lastname,', ',firstname,middlename) as name, (select code from section s where s.idno = sectionid) as section,sectionid,
+   	$queryStr = "SELECT b.idno,a.idno as accountidno,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo,a.usn,concat(lastname,', ',firstname,middlename) as name, (select code from section s where s.idno = sectionid) as section,sectionid,
    		(select code from subjectunit sb where sb.idno = subjectid) as subject,subjectid,logdate as logindate,(SELECT min(x.logdate) FROM accountlog x where x.status = 'logout' and x.subjectid = b.subjectid and x.sectionid = b.sectionid and x.accountid = b.accountid) as logoutdate,remarks,status from accountlog b,account a where b.status = 'login' and a.idno = b.accountid  ".$filter." order by logdate desc";
    }
 
