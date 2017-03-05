@@ -4,11 +4,7 @@
 
 <?php 
 
-
-include getPage();
-//$_SESSION['userId'] = null;
-
-
+  include getPage();
 
 ?>
 
