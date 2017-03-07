@@ -20,9 +20,9 @@ function getPageContents(){?>
 </div>
 <?php if(isRoleIn([ROLE_STUDENT,ROLE_TEACHER])==='false'){ ?>	
 	<div class="jumbotron">
-	  <h2>Mobile Face Recognition Device</h2>
-	  <p>Click on download servers below to get the app <br>
-	  <span class="glyphicon glyphicon-download" aria-hidden="true" style="margin-left:20px"></span><a href="http://www.mediafire.com/download/qwzxjeilfbrmmts/Mobile+Face+Recognition_2.0.apk" style="color:blue" target="_blank"> Mediafire</a></p>
+	  <h2>Mobile Face Recognition App</h2>
+	  <p>Click on servers below to get the app <br>
+	  <span class="glyphicon glyphicon-download" aria-hidden="true" style="margin-left:20px"></span><a href="https://mobile.whosabsent.com" style="color:blue" target="_blank"> Mobile App</a></p>
 	  <p></p>
 	
 </div>

@@ -8,7 +8,7 @@
   <!-- columns should be the immediate child of a .row -->
 
   <div class="row">
-    <div class="col-md-4 col-md-offset-4">
+    <div class="col-md-4 col-md-offset-4 col-sm-12">
       <center>
         <!-- <img src="https://upload.wikimedia.org/wikipedia/en/c/c8/AMA_University_logo.png"/>-->
 
