@@ -2,6 +2,13 @@
 <!DOCTYPE html>
 <html lang="en-US" >
 <head>
+<?php if(!isset($_SESSION['userId'])){
+?>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<?php 
+}
+
+?>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/nav.css">

@@ -14,7 +14,16 @@
 
       </center>
       <div class="panel panel-danger" style="margin-top:50px">
-        <div class="panel-heading"><h4>Login</h4></div>
+        <div class="panel-heading">
+          <h4>
+            <?php
+              if(isset($_GET['mobile'])){
+                echo "Mobile ";
+              }
+            ?>
+            Login
+          </h4>
+        </div>
         <div class="panel-body" ng-app="postApp" ng-controller="postController">
           <form name="userForm" ng-submit="submitForm()">
           
@@ -28,7 +37,15 @@
               <input type="password" name="password" class="form-control" ng-model="user.password">
               <span ng-show="errorPassword">{{errorPassword}}</span>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <?php
+              if(!isset($_GET['mobile'])){
+                ?>
+                <span style="float:right"><a href="https://mobile.whosabsent.com">Switch to mobile login</a></span>
+                <?php
+              }
+            ?>
+            
             <script>
               // Defining angularjs application.
               var postApp = angular.module('postApp', []);
