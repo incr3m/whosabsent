@@ -110,7 +110,7 @@ if(isset($_GET['id'])){
 </thead>
   <tr class="clickable-row" ng-repeat="x in list | orderBy:sortType:sortReverse | filter:searchList">
     <td>{{x.fileindex}}</td>
-    <td><img class="img-account-thumb" ng-src="{{x.filename}}"/></td>
+    <td><img class="img-account-thumb" ng-src="{{x.photo}}"/></td>
     <td>
       <center>
             <br/>

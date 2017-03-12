@@ -206,7 +206,7 @@ else{
 
    $objId = $_SESSION['objectId'];
 
-  if ($result = $myCon->query("SELECT * FROM accountphoto where accountidno = $objId order by fileindex")) {
+  if ($result = $myCon->query("SELECT *,concat('".BUCKETPATH."',a.filename) as photo FROM accountphoto a where accountidno = $objId order by fileindex")) {
 
     while($row = $result->fetch_assoc()) {
       $list[] = $row;
