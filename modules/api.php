@@ -197,7 +197,7 @@ if(isset($_GET['cmd'])){
 			
 			
 			$q = "INSERT INTO accountlog (accountid,logdate,remarks,sectionid,subjectid,status)
-			values ('$accountidno',now(),'$remarks','$sectionidno','$subjectidno','$status')";
+			values ('$accountidno',now(),'$remarks','$subjectidno','$sectionidno','$status')";
 			
 			if ($result = $myCon->query($q) or die($myCon->error)) {
 			
