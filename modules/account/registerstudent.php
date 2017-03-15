@@ -78,7 +78,12 @@ if($forcemode=='create'){
 	echo json_encode($data);
 	exit;
 	}
-	if(preg_match("/^[0-9]+$/", $username) == 0) {
+	if(strlen($username) > 11) {
+	    $data['errors']  = 'Username should not be more than 11 characters.';
+		echo json_encode($data);
+		exit;
+	}
+  if(preg_match("/^[0-9]+$/", $username) == 0) {
 	    $data['errors']  = 'Username should only consist of numbers.';
 		echo json_encode($data);
 		exit;
