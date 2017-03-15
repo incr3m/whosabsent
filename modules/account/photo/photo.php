@@ -29,6 +29,7 @@ if(isset($_POST["newphotoidno"])){
 
         $useridno = $_POST["newphotoidno"];
   			$filename = $_POST["filename"];
+        $faceid = $_POST["faceId"];
         $isprimary = 'NO';
         if(isset($_POST["isprimary"])){
           $q = "update accountphoto set 
@@ -39,8 +40,8 @@ if(isset($_POST["newphotoidno"])){
           $isprimary = 'YES';
         }
   			
-  			$q = "INSERT INTO accountphoto (accountidno,filename,fileindex,isprimary) 
-  				values ($useridno,'$filename',$index,'$isprimary')";	
+  			$q = "INSERT INTO accountphoto (accountidno,filename,fileindex,isprimary,referenceno) 
+  				values ($useridno,'$filename',$index,'$isprimary','$faceid')";	
   
   			if ($result = $myCon->query($q) or die($myCon->error)) {
   
@@ -152,11 +153,13 @@ else if(isset($_POST["idno"])){
 	$mode = $_POST["mode"];
 	$objId = $_SESSION['objectId'];
 	$filename = '';
-	if ($result = $myCon->query("select filename from accountphoto 
+  $referenceno = '';
+	if ($result = $myCon->query("select filename,coalesce(referenceno,'none') as referenceno from accountphoto 
 			where idno = $id")) {
 	
 		while($row = $result->fetch_assoc()) {
 			$filename = $row["filename"];
+			$referenceno = $row["referenceno"];
 		}
 	
 		$result->close();
@@ -175,12 +178,18 @@ else if(isset($_POST["idno"])){
 		isprimary = 'NO' 
 		where accountidno = $objId";
 	}
-
+  // $ch = curl_init(APIPATH.'/deleteFace/'.$referenceno);
+	// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	// curl_setopt($ch, CURLOPT_HEADER, false);
+	// 	
+	// $result = curl_exec($ch);
+	// echo json_encode($result);
+  // exit;
 	if ($result = $myCon->query($q) or die($myCon->error)) {
 
 		if($result === TRUE){
 			if($mode=='delete'){
-				$ch = curl_init(APIPATH.'/delete?id='.urlencode($filename));
+				$ch = curl_init(APIPATH.'/deleteFace/'.$referenceno);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_HEADER, false);
 					

@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if(isset($_POST['userIdToken'])){
+  $_SESSION['userId'] = $_POST['userIdToken'];
+}
 header("access-control-allow-origin: *");
 
 include 'constants.php';

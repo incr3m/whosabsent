@@ -197,7 +197,8 @@ app.controller('listCtrl', function ($scope, $http){
                                 headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
                             })
                           .success(function(data) {
-                            
+                            console.log('data');
+                            console.log(data);
                             bootbox.alert("Photo index "+photo.fileindex+" has been removed successfully.", function() {
                                 location.reload();
                               });

@@ -21,7 +21,7 @@ function getPageContents(){?>
 <?php if(isRoleIn([ROLE_STUDENT,ROLE_TEACHER])==='false'){ ?>	
 	<div class="jumbotron">
 	  <h2>Mobile Face Recognition App</h2>
-	  <p>Click on servers below to get the app <br>
+	  <p>Click on servers below to access the app <br>
 	  <span class="glyphicon glyphicon-download" aria-hidden="true" style="margin-left:20px"></span><a href="https://mobile.whosabsent.com" style="color:blue" target="_blank"> Mobile App</a></p>
 	  <p></p>
 	
