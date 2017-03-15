@@ -189,12 +189,15 @@ else if(isset($_POST["idno"])){
 
 		if($result === TRUE){
 			if($mode=='delete'){
-				$ch = curl_init(APIPATH.'/deleteFace/'.$referenceno);
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-				curl_setopt($ch, CURLOPT_HEADER, false);
-					
-				$result = curl_exec($ch);
-				echo json_encode($result);
+				// $ch = curl_init(APIPATH.'/deleteFace/'.$referenceno);
+				// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				// curl_setopt($ch, CURLOPT_HEADER, false);
+				// 	
+				// $result = curl_exec($ch);
+				// echo json_encode($result);
+				$ret = array();
+        $ret['referenceno'] = APIPATH.'/deleteFace/'.$referenceno;
+				echo json_encode($ret);
 			}
 			$myCon->close();	
 			exit;	

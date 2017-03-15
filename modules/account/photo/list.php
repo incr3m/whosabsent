@@ -199,9 +199,26 @@ app.controller('listCtrl', function ($scope, $http){
                           .success(function(data) {
                             console.log('data');
                             console.log(data);
-                            bootbox.alert("Photo index "+photo.fileindex+" has been removed successfully.", function() {
+                            if(data.referenceno){
+                              $http({
+                                method: 'GET',
+                                url: data.referenceno
+                              }).then(function successCallback(response) {
+                                  bootbox.alert("Photo index "+photo.fileindex+" has been removed successfully.", function() {
+                                    location.reload();
+                                  });
+                                }, function errorCallback(response) {
+                                  bootbox.alert("Something happened!", function() {
+                                  });
+                                });
+                              
+                            }
+                            else{
+                              bootbox.alert("Something happened!", function() {
                                 location.reload();
                               });
+                            }
+                            
                             
                           });
                     }
