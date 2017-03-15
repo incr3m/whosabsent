@@ -239,6 +239,18 @@ if(isset($_GET['id']) && $_GET['id']>0){
 				<?php if(isModeIn([MODE_DELETE,MODE_UPDATE,MODE_CREATE])==='false'){?>
 	<a class="btn btn-default btn-sm btn-edit" title="View Attendance" href="modules/monitoring/calendar.php?accountID={{account.idno}}">
 					<span class="glyphicon glyphicon-calendar"></span> View Attendance</a>
+          <?php 
+          if ($result = $myCon->query("SELECT * FROM enrolledstudent a where accountidno = $id")) {
+
+            while($row = $result->fetch_assoc()) {
+              $student = $row;
+            }
+            $result->close();
+          }
+            if(isset($student)){?>
+          	<a class="btn btn-default btn-sm btn-edit" title="Student Detail" href="?module=stdreg&id=<?php echo $student['idno'] ?>">
+          					<span class="glyphicon glyphicon-user"></span>Student Details</a>
+          					<?php }?>
 					<?php }?>
 <div style="clear:both"/>
 </form>

@@ -118,6 +118,20 @@ if($forcemode=='create'){
   		if($result === TRUE){
 			
 				$data['idno']=$myCon->insert_id;
+        $accountidno = $data['idno'];
+      	$dateenrolled = '';
+      	$status = 'ACTIVE';
+      	
+      
+      	$q = "";
+      	
+    		$q = "INSERT INTO enrolledstudent (accountidno,dateenrolled,status) 
+    		values ($accountidno,NOW(),'$status')";	
+    	
+        if ($result = $myCon->query($q) or die($myCon->error)) {
+          
+        }
+
 				$myCon->close();
 				addUserActivity("Registered new account ''$username''.");
 				echo json_encode($data);
