@@ -205,7 +205,7 @@ else{
     </a>
   </td>
 </thead>
-  <tr title="Open calendar" class="clickable-row" ng-repeat="x in list | orderBy:sortType:sortReverse | filter:searchList" ng-click="itemSelected(x.accountidno)">
+  <tr title="Open calendar" class="clickable-row" ng-repeat="x in list | orderBy:sortType:sortReverse | filter:searchList">
     <td>{{x.usn}}</td>
     <td>{{x.name}}</td>
     <td>{{x.section}}</td>
