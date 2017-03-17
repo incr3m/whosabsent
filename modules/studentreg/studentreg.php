@@ -82,7 +82,7 @@ if(isset($_POST['idno'])){
    $myCon = createSQLCon();
 
 
-  if ($result = $myCon->query("SELECT b.idno,a.idno as accountidno,a.usn,concat(lastname,', ',firstname,' ',middlename) as name,b.status,b.dateenrolled FROM account a, enrolledstudent b where a.idno = b.accountidno order by b.dateenrolled desc")) {
+  if ($result = $myCon->query("SELECT b.idno,a.idno as accountidno,a.usn,concat(lastname,', ',firstname,' ',middlename) as name,b.status,DATE_ADD(b.dateenrolled,INTERVAL 8 HOUR) as 'dateenrolled' FROM account a, enrolledstudent b where a.idno = b.accountidno order by b.dateenrolled desc")) {
 
     while($row = $result->fetch_assoc()) {
       $list[] = $row;

@@ -157,7 +157,7 @@ if(isset($_GET['cmd'])){
 				$result->close();
 			}
 			
-			if ($result = $myCon->query("select dateenrolled,status from enrolledstudent where accountidno = $accountidno
+			if ($result = $myCon->query("select DATE_ADD(dateenrolled, INTERVAL 8 HOUR),status from enrolledstudent where accountidno = $accountidno
 					order by dateenrolled desc limit 1
 					")) {
 						

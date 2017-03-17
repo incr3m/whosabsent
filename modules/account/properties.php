@@ -20,7 +20,7 @@ if(isset($_GET['id']) && $_GET['id']>0){
 	$myCon = createSQLCon();
 	
 
-	if ($result = $myCon->query("SELECT *,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo FROM account a where idno = $id ")) {
+	if ($result = $myCon->query("SELECT *,DATE_ADD(dateadded,INTERVAL 8 HOUR) as 'dateadded',concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo FROM account a where idno = $id ")) {
 
 	    while($row = $result->fetch_assoc()) {
 	      $account = $row;

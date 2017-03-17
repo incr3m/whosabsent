@@ -189,7 +189,7 @@ if(isset($_POST['idno'])){
    $myCon = createSQLCon();
 
 
-  if ($result = $myCon->query("SELECT idno,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo,usn,username,concat(lastname,', ',firstname,' ',middlename) as name,email,roles,dateadded FROM account a order by dateadded desc")) {
+  if ($result = $myCon->query("SELECT idno,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo,usn,username,concat(lastname,', ',firstname,' ',middlename) as name,email,roles,DATE_ADD(dateadded,INTERVAL 8 HOUR) as 'dateadded' FROM account a order by dateadded desc")) {
 
     while($row = $result->fetch_assoc()) {
       $accounts[] = $row;
