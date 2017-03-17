@@ -98,13 +98,13 @@ if(isset($_POST['idno'])){
    if(isRoleIn([ROLE_STUDENT,ROLE_TEACHER])==='true'){
    		$userIdNo = getCurrentUser()['idno'];
    		$queryStr = "SELECT b.idno,a.idno as accountidno,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo,a.usn,concat(lastname,', ',firstname,' ',middlename) as name, (select code from section s where s.idno = sectionid) as section,sectionid,
-   		(select code from subjectunit sb where sb.idno = subjectid) as subject,subjectid,DATE_FORMAT(logdate,'%a, %d %b %Y %T') as logindate,DATE_FORMAT((SELECT min(x.logdate) FROM accountlog x where x.status = 'logout' and x.subjectid = b.subjectid and x.sectionid = b.sectionid and x.accountid = b.accountid),'%a, %d %b %Y %T') as logoutdate,remarks,status from accountlog b,account a where b.status = 'login' and a.idno = b.accountid 
+   		(select code from subjectunit sb where sb.idno = subjectid) as subject,subjectid,DATE_FORMAT(DATE_ADD(logdate, INTERVAL 8 HOUR),'%a, %d %b %Y %T') as logindate,DATE_FORMAT((SELECT min(x.logdate) FROM accountlog x where x.status = 'logout' and x.subjectid = b.subjectid and x.sectionid = b.sectionid and x.accountid = b.accountid),'%a, %d %b %Y %T') as logoutdate,remarks,status from accountlog b,account a where b.status = 'login' and a.idno = b.accountid 
    				 and a.idno = $userIdNo ".$filter."
    		 order by logdate desc";
    }
    else{
    	$queryStr = "SELECT b.idno,a.idno as accountidno,concat('".BUCKETPATH."',coalesce((select filename from accountphoto where accountidno = a.idno and isprimary = 'YES'),'noimage_png')) as photo,a.usn,concat(lastname,', ',firstname,' ',middlename) as name, (select code from section s where s.idno = sectionid) as section,sectionid,
-   		(select code from subjectunit sb where sb.idno = subjectid) as subject,subjectid,DATE_FORMAT(logdate, '%a, %d %b %Y %T') as logindate,DATE_FORMAT((SELECT min(x.logdate) FROM accountlog x where x.status = 'logout' and x.subjectid = b.subjectid and x.sectionid = b.sectionid and x.accountid = b.accountid),'%a, %d %b %Y %T') as logoutdate,remarks,status from accountlog b,account a where b.status = 'login' and a.idno = b.accountid  ".$filter." order by logdate desc";
+   		(select code from subjectunit sb where sb.idno = subjectid) as subject,subjectid,DATE_FORMAT(DATE_ADD(logdate, INTERVAL 8 HOUR), '%a, %d %b %Y %T') as logindate,DATE_FORMAT((SELECT min(x.logdate) FROM accountlog x where x.status = 'logout' and x.subjectid = b.subjectid and x.sectionid = b.sectionid and x.accountid = b.accountid),'%a, %d %b %Y %T') as logoutdate,remarks,status from accountlog b,account a where b.status = 'login' and a.idno = b.accountid  ".$filter." order by logdate desc";
    }
 
   //if ($result = $myCon->query("SELECT b.idno,a.usn,concat(lastname,', ',firstname,middlename) as name,b.status,b.dateenrolled FROM account a, enrolledstudent b where a.idno = b.accountidno order by b.dateenrolled desc")) {
