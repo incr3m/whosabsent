@@ -168,7 +168,7 @@ $page = '';
 	</div>
 	<div id="nav-footer">
 		<a title="Log-out" id="logoutBtn"><div style="float:right;padding:5px"><i class="fa fa-sign-out"></i></div></a>
-		<a title="My Account" id="myacctBtn" href="?module=acct&id=<?php $curUser = getCurrentUser();echo $curUser['idno']; ?>&"><div style="float:right;padding:5px;margin-right:5px;"><i class="fa fa-gear"></i></div></a>
+		<!-- <a title="My Account" id="myacctBtn" href="?module=acct&id=<?php $curUser = getCurrentUser();echo $curUser['idno']; ?>&"><div style="float:right;padding:5px;margin-right:5px;"><i class="fa fa-gear"></i></div></a> -->
 		<div style="margin-left: 10px">
 			<div style="font-weight: bold"><?php $curUser = getCurrentUser(); echo $curUser['name'];?></div>
 			<div style="font-size: smaller">

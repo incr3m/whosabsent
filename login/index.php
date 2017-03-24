@@ -38,6 +38,7 @@
               <span ng-show="errorPassword">{{errorPassword}}</span>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
+            <button class="btn btn-cancel" ng-click="clearAll()">Cancel</button>
             <?php
               if(!isset($_GET['mobile'])){
                 ?>
@@ -53,6 +54,12 @@
               postApp.controller('postController', function($scope, $http) {
                 // create a blank object to handle form data.
                 $scope.user = {};
+                $scope.clearAll = function() {
+                  $scope.user.username = '';
+                  // $scope.errorUserName = '';
+                  $scope.user.password = '';
+                  // $scope.errorPassword = '';
+                };
                 // calling our submit function.
                 $scope.submitForm = function() {
                   // Posting data to php file
